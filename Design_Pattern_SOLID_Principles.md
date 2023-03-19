@@ -16,11 +16,19 @@ Design patterns can speed up the development process by providing a tested and p
 
 ### Coupling and Cohesion
 
-Two words describe how easy or difficult it is to change a piece of software. Coupling in software development refers to the extent to which one component or module depends on another. A high degree of coupling indicates that the components are closely related and that changes in one can have a significant impact on others. A low degree of coupling, on the other hand, means that components are independent of one another and can be changed or reused without significantly affecting other components. 
+Two words describe how easy or difficult it is to change a piece of software. 
+
+![Coupling](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fcoup_dia.jpg?alt=media&token=3b1dac83-332d-472c-b4be-2d05201a9c59 "Coupling")
+
+Coupling in software development refers to the extent to which one component or module depends on another. A high degree of coupling indicates that the components are closely related and that changes in one can have a significant impact on others. A low degree of coupling, on the other hand, means that components are independent of one another and can be changed or reused without significantly affecting other components. 
+
+
 
 >*Coupling describes two things changing together – a movement in one induces a movement in another*
 
-<Diagram coupling>
+
+![Cohesion](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fcoh_dia.jpg?alt=media&token=0aca6082-d7bf-48cb-b788-9ac3dbf35009 "Cohesion")
+
 
 Cohesion is a measure of the degree to which the elements of the module are functionally
 related. It is the degree to which all elements directed towards performing a single task are
@@ -28,7 +36,7 @@ contained in the component. Cohesion represents the clarity of the responsibilit
 
 >*Cohesion defines the relationships within a module*
 
-<Diagram Cohesion>
+
 
 ### SOLID Principles
 
@@ -77,7 +85,7 @@ class Bill
 
 SRP states that classes should have one responsibility, here, we can draw out three responsibilities: Bill Management, Printing the Bill and Bill storage management. These three responsibilities are coupled in a single class which voilates SRP.
 
-<add image SRP>
+![SRP Violate](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fsrp1_diff.webp?alt=media&token=2f8ab4ec-a23f-40ee-93e5-566096513ea1 "SRP Violate")
 
 ##### How will this design cause issues in the future?
 
@@ -85,7 +93,7 @@ If the application changes in a way that it affects database management function
 
 To make this obey SRP, we create two more classes that will handle the sole responsibility of storing the bill to a database and printing the bill.
 
-<add image with own resposibility>
+![SRP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2FSRP_Resp.webp?alt=media&token=37eb2c5b-60ed-426b-ba11-6f87b5669294 "SRP")
 
 ``` C++
 
@@ -213,6 +221,8 @@ void CalculateAllBills(BillPointer list[], int n)
 
 The function `CalculateAllBills` does not conform to the open-closed principle because it cannot be closed against new kinds of bills. If we want to extend this function to calculate the bill for groceries along with other bills, we are forced to modify the function. If other functions similar to `CalculateAllBills` exists (for insance, `PayAllBills`); then switch statement would be repeated over and over again in various functions all over the application.
 
+![OCP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Focp.jpg?alt=media&token=d94ac893-1e17-4434-8580-c866fab29f21 "OCP")
+
 The below code provides solution to the different bills problem that conforms to the open-closed principle.
 
 ```C++
@@ -332,6 +342,8 @@ int main()
 
 The above example violates the Liskov Substitution principle because the `Bicycle` class implements the `startEngine` interface but it throws exception because the `Bicycle` class doesn't have an engine to start. LSP suggests that the subtype must be substitutable for the base class or base interface.
 
+![LSP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Flsp.jpg?alt=media&token=7194e302-c0ad-460d-bd07-1044c04b0427 "LSP")
+
 ##### Conforming to the Liskov Substitution Principle
 
 Let's refactor the code to make "good" design using LSP.
@@ -419,6 +431,8 @@ public:
 ```
 
 As you can see, it does not make sense for a `MotorCycle` class to implement the `openDoor()` method as a Motor Cycle does not have any doors! To fix this, ISP proposes that the interfaces be broken down into multiple, small cohesive interfaces so that no class is forced to implement any interface, and therefore methods, that it does not need. Also, ISP states that interfaces should perform only one job (just like the SRP principle) any extra grouping of behavior should be abstracted away to another interface.
+
+![ISP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fisp.jpg?alt=media&token=5685d170-d420-4f6b-98ca-479ffbe903cc "ISP")
 
 Here, our `Vehicle` interface performs actions that should be handled independently by other interfaces. To make our `Vehicle` interface conform to the ISP principle, we segregate the actions to different interfaces.
 
@@ -526,6 +540,8 @@ At this point, we would want to know which classes are high level, and which are
 - We cannot re-use the `SwitchButton` class without also including the `Light` class.
 - Any update, like creating a new class which needs to be turned on or off by our `SwitchButton` cannot be added without modifying the `SwitchButton` class itself.
 
+![DIP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fisp.jpg?alt=media&token=5685d170-d420-4f6b-98ca-479ffbe903cc "DIP")
+
 ##### How Do We Conform To The DIP?
 
 To conform with the DIP, we must invert the dependancies of our code.
@@ -605,19 +621,3 @@ Our updated `SwitchButton` and `Light` now both depend on abstractions, `ButtonI
 ### Conclusion
 
 Implementing SOLID design principles during development will result in more maintainable, scalable, testable, and reusable systems. Engineers worldwide use these principles in today's environment. As a result, it's critical to use these principles when writing good code and applying design principles that are competitive while meeting industry standards. All what we need to do is to **start thinking about the design a little bit before rushing into coding**.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
