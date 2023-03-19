@@ -540,7 +540,7 @@ At this point, we would want to know which classes are high level, and which are
 - We cannot re-use the `SwitchButton` class without also including the `Light` class.
 - Any update, like creating a new class which needs to be turned on or off by our `SwitchButton` cannot be added without modifying the `SwitchButton` class itself.
 
-![DIP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fisp.jpg?alt=media&token=5685d170-d420-4f6b-98ca-479ffbe903cc "DIP")
+![DIP](https://firebasestorage.googleapis.com/v0/b/pratik-blog10.appspot.com/o/CPP%2FDesign%20Patter%2FSOLID%2Fdip.jpg?alt=media&token=cd2342c5-ae4e-4454-8ee7-47e6cfd48482 "DIP")
 
 ##### How Do We Conform To The DIP?
 
