@@ -124,10 +124,10 @@ In this example, characters are created directly in the client code without usin
 
 The potential problems include:
 
-1. Code Duplication: Without the Factory Design Pattern, we end up duplicating the code for creating characters in multiple places throughout the client code. This can lead to inconsistencies and makes it harder to manage and modify the codebase.
-2. Lack of Abstraction: There is no clear abstraction or separation between the client code and the creation of character objects. This can make the code harder to understand, maintain, and extend, especially as the number of character types grows.
-3. Tight Coupling: The client code is tightly coupled to the concrete character classes. It directly creates objects using their constructors, making it harder to introduce new character types or modify the creation process without modifying the client code.
-4. Limited Flexibility and Extensibility: Adding new character types or modifying the creation process requires modifying the client code. This violates the Open-Closed Principle, which states that code should be open for extension but closed for modification.
+1. **Code Duplication**: Without the Factory Design Pattern, we end up duplicating the code for creating characters in multiple places throughout the client code. This can lead to inconsistencies and makes it harder to manage and modify the codebase.
+2. **Lack of Abstraction**: There is no clear abstraction or separation between the client code and the creation of character objects. This can make the code harder to understand, maintain, and extend, especially as the number of character types grows.
+3. **Tight Coupling**: The client code is tightly coupled to the concrete character classes. It directly creates objects using their constructors, making it harder to introduce new character types or modify the creation process without modifying the client code.
+4. **Limited Flexibility and Extensibility**: Adding new character types or modifying the creation process requires modifying the client code. This violates the Open-Closed Principle, which states that code should be open for extension but closed for modification.
 
 By using the Factory Design Pattern, we can address these problems by encapsulating the creation logic within a factory class, promoting loose coupling, providing an abstraction layer, and facilitating extensibility without modifying the client code.
 
